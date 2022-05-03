@@ -1,5 +1,7 @@
 package se.kth.iv1350.processSale.model;
 
+import se.kth.iv1350.processSale.integration.Printer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +27,7 @@ public class Sale {
     }
 
     public void applyDiscount(Discount discount){
-        if(discount.verifyDiscount()){
-            discountAmount = discount.getDiscountAmount();
-        }
+        discountAmount = discount.getDiscountAmount();
     }
 
     public boolean pay(int amount){
@@ -40,8 +40,25 @@ public class Sale {
         return false;
     }
 
+    public int getRemainingAmountToPay(){
+        calculateTotalPrice();
+        return totalPrice-paidAmount;
+    }
+
     public Receipt endSale(){
-        return new Receipt("Placehodler");
+        String text = "Receipt:\n";
+        text+="Total: "+totalPrice+"\n";
+        text+="Total VAT: "+totalVAT+"\n";
+        text+="Discount: "+discountAmount+"\n";
+        text+="Paid: "+paidAmount+"\n";
+        text+="Change: "+change+"\n";
+
+        for(int i=0;i<shoppingCart.size();i++){
+            Item currentItem = shoppingCart.get(i);
+            text += currentItem.getDescription()+" "+currentItem.getQuantity()+"\n";
+        }
+        text+="End of receipt";
+        return new Receipt(text);
     }
 
     private void calculateTotalPrice(){

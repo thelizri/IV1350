@@ -8,11 +8,11 @@ public class CustomerDatabase {
     }
 
     public String getName(int customerID){
-        return "Name";
+        return "Johnny Depp";
     }
 
     public String getAddress(int customerID){
-        return "Address";
+        return "Hollywood";
     }
 
     public void registerNewCustomer(String name, String address, int customerID){

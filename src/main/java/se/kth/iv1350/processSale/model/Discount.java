@@ -10,14 +10,16 @@ public class Discount {
     public Discount(Customer customer){
         this.customer = customer;
         this.database = new DiscountDatabase();
+        getDiscountFromDatabase();
     }
 
-    public boolean verifyDiscount(){
+    private void getDiscountFromDatabase(){
         if(database.verifyDiscount(customer)){
-            database.getDiscountAmount(customer);
-            return true;
+            this.discountAmount = database.getDiscountAmount(customer);
         }
-        return false;
+        else{
+            this.discountAmount = 0;
+        }
     }
 
     public int getDiscountAmount() {

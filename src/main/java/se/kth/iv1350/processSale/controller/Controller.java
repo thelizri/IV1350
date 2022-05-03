@@ -3,8 +3,10 @@ package se.kth.iv1350.processSale.controller;
 import se.kth.iv1350.processSale.integration.AccountingSystem;
 import se.kth.iv1350.processSale.integration.CustomerDatabase;
 import se.kth.iv1350.processSale.integration.InventorySystem;
+import se.kth.iv1350.processSale.integration.Printer;
 import se.kth.iv1350.processSale.model.Customer;
 import se.kth.iv1350.processSale.model.Discount;
+import se.kth.iv1350.processSale.model.Receipt;
 import se.kth.iv1350.processSale.model.Sale;
 
 public class Controller {
@@ -48,11 +50,14 @@ public class Controller {
         customer = new Customer(name, address, customerID);
     }
 
-    public void pay(){
-
+    public boolean pay(int amount){
+        boolean result = currentSale.pay(amount);
+        return result;
     }
 
     public void endSale(){
-
+        Receipt receipt = currentSale.endSale();
+        Printer printer = new Printer();
+        printer.printReceipt(receipt);
     }
 }

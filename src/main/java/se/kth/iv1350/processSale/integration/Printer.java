@@ -6,6 +6,6 @@ public class Printer {
     public Printer() {
     }
     public void printReceipt(Receipt receipt){
-
+        System.out.println(receipt);
     }
 }

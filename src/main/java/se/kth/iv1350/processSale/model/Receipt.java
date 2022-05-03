@@ -5,4 +5,9 @@ public class Receipt {
     public Receipt(String saleInfo) {
         receiptText = saleInfo;
     }
+
+    @Override
+    public String toString() {
+        return receiptText;
+    }
 }

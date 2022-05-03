@@ -9,6 +9,6 @@ public class DiscountDatabase {
         return true;
     }
     public int getDiscountAmount(Customer customer){
-        return 0;
+        return 2;
     }
 }
