@@ -102,4 +102,13 @@ public class Sale {
         }
         totalPrice -= discountAmount;
     }
+
+    public int getTotalPrice(){
+        calculateTotalPrice();
+        return this.totalPrice;
+    }
+
+    public int getPaidAmount() {
+        return paidAmount;
+    }
 }
