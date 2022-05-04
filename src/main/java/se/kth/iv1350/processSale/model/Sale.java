@@ -75,7 +75,7 @@ public class Sale {
         calculateTotalPrice();
         return totalPrice-paidAmount;
     }
-    
+
     public Receipt endSaleAndReturnReceipt(){
         Receipt receipt = new Receipt(this);
         return receipt;

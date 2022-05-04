@@ -9,9 +9,6 @@ import java.util.List;
 public class Receipt {
     private String receiptText;
     private Sale sale;
-    public Receipt(String saleInfo) {
-        receiptText = saleInfo;
-    }
 
     public Receipt(Sale sale){
         this.sale = sale;
