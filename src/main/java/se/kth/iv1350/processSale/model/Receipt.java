@@ -6,10 +6,17 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Creates receipts from purchases.
+ */
 public class Receipt {
     private String receiptText;
     private Sale sale;
 
+    /**
+     * Creates an instance of the Receipt class.
+     * @param sale An instance of a sale.
+     */
     public Receipt(Sale sale){
         this.sale = sale;
         receiptText = "";
@@ -18,6 +25,10 @@ public class Receipt {
         addAmountsToReceipt();
     }
 
+    /**
+     * Returns all the text that should be printed on the receipt.
+     * @return The receipt text.
+     */
     @Override
     public String toString() {
         return receiptText;

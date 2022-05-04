@@ -2,9 +2,16 @@ package se.kth.iv1350.processSale.view;
 
 import se.kth.iv1350.processSale.controller.Controller;
 
+/**
+ * The view. It controls what is being outputted to the screen.
+ */
 public class View {
     private Controller controller;
 
+    /**
+     * Creates an instance of <code>View<code/>.
+     * @param controller The controller class.
+     */
     public View(Controller controller) {
         this.controller = controller;
         runProgram();

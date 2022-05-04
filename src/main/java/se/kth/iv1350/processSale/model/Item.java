@@ -4,6 +4,9 @@ import se.kth.iv1350.processSale.integration.InventorySystem;
 
 import java.util.Objects;
 
+/**
+ * Stores information about an item: quantity, tag, price, VAT, description.
+ */
 public class Item {
     private int itemIdentifier;
     private int price;
@@ -26,6 +29,11 @@ public class Item {
         return Objects.hash(itemIdentifier, price, VAT, quantity, description);
     }
 
+    /**
+     * Creates an instance of the Item class.
+     * @param itemIdentifier The tag of the item.
+     * @param quantity Quantity of the item.
+     */
     public Item(int itemIdentifier, int quantity) {
         InventorySystem inventorySystem = new InventorySystem();
         this.itemIdentifier = itemIdentifier;
@@ -35,23 +43,36 @@ public class Item {
         this.description = inventorySystem.getItemDescription(itemIdentifier);
     }
 
+    /**
+     * Returns the price of a single unit of the item.
+     * @return The price of the item.
+     */
     public int getPrice() {
         return price;
     }
 
+    /**
+     * Returns the VAT of a single unit of the item.
+     * @return The VAT of the item.
+     */
     public int getVAT() {
         return VAT;
     }
 
+    /**
+     * Returns a description of the item.
+     * @return The description of the item.
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Returns the quantity of the item.
+     * @return The quantity of the item.
+     */
     public int getQuantity() {
         return quantity;
     }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+    
 }
