@@ -47,7 +47,7 @@ public class Sale {
 
     public Receipt endSale(){
         String text = "Receipt:\n";
-        text+="Total: "+totalPrice+"\n";
+        text+="Total Price: "+totalPrice+"\n";
         text+="Total VAT: "+totalVAT+"\n";
         text+="Discount: "+discountAmount+"\n";
         text+="Paid: "+paidAmount+"\n";
