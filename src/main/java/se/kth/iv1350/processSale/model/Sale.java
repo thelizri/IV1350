@@ -75,21 +75,10 @@ public class Sale {
         calculateTotalPrice();
         return totalPrice-paidAmount;
     }
-
-    public Receipt endSale(){
-        String text = "Receipt:\n";
-        text+="Total Price: "+totalPrice+"\n";
-        text+="Total VAT: "+totalVAT+"\n";
-        text+="Discount: "+discountAmount+"\n";
-        text+="Paid: "+paidAmount+"\n";
-        text+="Change: "+change+"\n";
-
-        for(int i=0;i<shoppingCart.size();i++){
-            Item currentItem = shoppingCart.get(i);
-            text += currentItem.getDescription()+" "+currentItem.getQuantity()+"\n";
-        }
-        text+="End of receipt";
-        return new Receipt(text);
+    
+    public Receipt endSaleAndReturnReceipt(){
+        Receipt receipt = new Receipt(this);
+        return receipt;
     }
 
     private void calculateTotalPrice(){
@@ -110,5 +99,21 @@ public class Sale {
 
     public int getPaidAmount() {
         return paidAmount;
+    }
+
+    public int getTotalVAT() {
+        return totalVAT;
+    }
+
+    public int getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public int getChange() {
+        return change;
+    }
+
+    public List<Item> getShoppingCart() {
+        return shoppingCart;
     }
 }

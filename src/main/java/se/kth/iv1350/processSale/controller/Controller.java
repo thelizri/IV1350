@@ -56,7 +56,7 @@ public class Controller {
     }
 
     public void endSale(){
-        Receipt receipt = currentSale.endSale();
+        Receipt receipt = currentSale.endSaleAndReturnReceipt();
         Printer printer = new Printer();
         printer.printReceipt(receipt);
     }
