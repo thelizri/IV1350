@@ -7,6 +7,11 @@ public class Discount {
     private Customer customer;
     private DiscountDatabase database;
     private int discountAmount;
+
+    /**
+     * Creates an instance of Discount
+     * @param customer An instance of Customer
+     */
     public Discount(Customer customer){
         this.customer = customer;
         this.database = new DiscountDatabase();

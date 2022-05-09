@@ -82,7 +82,7 @@ public class InventorySystem {
     }
 
     /**
-     * Returns the price of a specific item.
+     * Returns the price (total price, including VAT) of a specific item.
      * @param itemIdentifier The item identifier. Specifies which item.
      * @return The price of the item.
      */

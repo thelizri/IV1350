@@ -14,6 +14,11 @@ public class Item {
     private int quantity;
     private String description;
 
+    /**
+     * Test if another instance of Item is equal to this instance.
+     * @param o Instance of an Object
+     * @return true/false value.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,11 +27,6 @@ public class Item {
         return itemIdentifier == item.itemIdentifier && price == item.price
                 && VAT == item.VAT && quantity == item.quantity
                 && description.equals(item.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(itemIdentifier, price, VAT, quantity, description);
     }
 
     /**
@@ -74,5 +74,5 @@ public class Item {
     public int getQuantity() {
         return quantity;
     }
-    
+
 }

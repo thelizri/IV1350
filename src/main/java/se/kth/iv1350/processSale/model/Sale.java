@@ -47,11 +47,6 @@ public class Sale {
         return primitive_attributes_comparison && object_attributes_comparison;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(totalPrice, totalVAT, discountAmount, paidAmount, change);
-    }
-
     /**
      * Creates a new instance of Sale.
      */

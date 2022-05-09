@@ -2,6 +2,9 @@ package se.kth.iv1350.processSale.integration;
 
 import se.kth.iv1350.processSale.model.Customer;
 
+/**
+ * This is a database of  all the discounts.
+ */
 public class DiscountDatabase {
     public DiscountDatabase() {
     }
