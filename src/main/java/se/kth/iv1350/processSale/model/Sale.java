@@ -167,4 +167,13 @@ public class Sale {
     public List<Item> getShoppingCart() {
         return shoppingCart;
     }
+
+    /**
+     * Returns the item that was added most recently to the sale.
+     * @return The most recent item.
+     */
+    public Item getLastAddedItem(){
+        int indexOfLastItem = shoppingCart.size()-1;
+        return shoppingCart.get(indexOfLastItem);
+    }
 }
