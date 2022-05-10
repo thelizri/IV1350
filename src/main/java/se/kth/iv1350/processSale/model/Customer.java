@@ -18,8 +18,6 @@ public class Customer {
         this.name = name;
         this.address = address;
         this.customerID = customerID;
-        CustomerDatabase customerDatabase = new CustomerDatabase();
-        customerDatabase.registerNewCustomer(name,address,customerID);
     }
 
     /**

@@ -34,13 +34,13 @@ public class Item {
      * @param itemIdentifier The tag of the item.
      * @param quantity Quantity of the item.
      */
-    public Item(int itemIdentifier, int quantity) {
+    public Item(int itemIdentifier, int quantity, int price, int VAT, String description) {
         InventorySystem inventorySystem = new InventorySystem();
         this.itemIdentifier = itemIdentifier;
         this.quantity = quantity;
-        this.price = inventorySystem.getPrice(itemIdentifier);
-        this.VAT = inventorySystem.getVAT(itemIdentifier);
-        this.description = inventorySystem.getItemDescription(itemIdentifier);
+        this.price = price;
+        this.VAT = VAT;
+        this.description = description;
     }
 
     /**

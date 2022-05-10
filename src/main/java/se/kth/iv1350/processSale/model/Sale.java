@@ -60,12 +60,11 @@ public class Sale {
     }
 
     /**
-     * Adds items to the sale.
-     * @param itemIdentifier The identifier of the item.
-     * @param quantity The quantity of the item to be added.
+     * Adds an item to the sale.
+     * @param item The item to be added.
      */
-    public void addItem(int itemIdentifier, int quantity){
-        shoppingCart.add(new Item(itemIdentifier,quantity));
+    public void addItem(Item item){
+        shoppingCart.add(item);
     }
 
     /**

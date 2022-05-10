@@ -1,5 +1,7 @@
 package se.kth.iv1350.processSale.integration;
 
+import se.kth.iv1350.processSale.model.Customer;
+
 /**
  * This class represents the database containing all the customers.
  */
@@ -39,11 +41,9 @@ public class CustomerDatabase {
 
     /**
      * Adds a new customer to the database.
-     * @param name The name of the customer.
-     * @param address The address of the customer.
-     * @param customerID The ID number of the customer.
+     * @param customer The customer.
      */
-    public void registerNewCustomer(String name, String address, int customerID){
+    public void registerNewCustomer(Customer customer){
 
     }
 }

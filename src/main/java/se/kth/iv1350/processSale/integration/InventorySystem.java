@@ -1,5 +1,6 @@
 package se.kth.iv1350.processSale.integration;
 
+import se.kth.iv1350.processSale.model.Item;
 import se.kth.iv1350.processSale.model.Sale;
 
 /**
@@ -52,11 +53,19 @@ public class InventorySystem {
     }
 
     /**
-     * Gets a description of specified item.
-     * @param itemIdentifier Item identifier that specifies item.
-     * @return Description of item.
+     * Returns an object of type Item.
+     * @param itemIdentifier The item identifier.
+     * @param quantity The quantity of the item.
+     * @return
      */
-    public String getItemDescription(int itemIdentifier){
+    public Item getItem(int itemIdentifier, int quantity){
+        String itemDescription = getItemDescription(itemIdentifier);
+        int price = getPrice(itemIdentifier);
+        int VAT = getVAT(itemIdentifier);
+        return new Item(itemIdentifier, quantity, price, VAT, itemDescription);
+    }
+
+    private String getItemDescription(int itemIdentifier){
         String result = "";
         switch (itemIdentifier){
             case 1:
@@ -81,21 +90,11 @@ public class InventorySystem {
         return result;
     }
 
-    /**
-     * Returns the price (total price, including VAT) of a specific item.
-     * @param itemIdentifier The item identifier. Specifies which item.
-     * @return The price of the item.
-     */
-    public int getPrice(int itemIdentifier){
+    private int getPrice(int itemIdentifier){
         return 10;
     }
 
-    /**
-     * Returns the VAT of a specific item.
-     * @param itemIdentifier The item identifier. Specifies which item.
-     * @return The VAT of the item.
-     */
-    public int getVAT(int itemIdentifier){
+    private int getVAT(int itemIdentifier){
         return 1;
     }
 }
