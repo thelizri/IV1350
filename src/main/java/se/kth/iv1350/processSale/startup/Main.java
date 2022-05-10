@@ -13,5 +13,6 @@ public class Main {
         CustomerDatabase customerDatabase = new CustomerDatabase();
         Controller controller = new Controller(accountingSystem, inventorySystem, customerDatabase);
         View view = new View(controller);
+        view.runDummyProgram();
     }
 }

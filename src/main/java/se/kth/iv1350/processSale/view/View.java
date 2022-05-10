@@ -14,10 +14,12 @@ public class View {
      */
     public View(Controller controller) {
         this.controller = controller;
-        runProgram();
     }
 
-    private void runProgram(){
+    /**
+     * Runs a dummy program with calls to different classes and functions; to see that they work.
+     */
+    public void runDummyProgram(){
         System.out.println("View class calling createNewSale() method belonging to Controller class\n");
         controller.createNewSale();
         System.out.println("View class calling scanItem(3,2) method with parameters belonging to Controller class\n");

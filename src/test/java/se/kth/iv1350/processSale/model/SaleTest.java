@@ -1,14 +1,10 @@
-package test;
+package se.kth.iv1350.processSale.model;
 
 import org.junit.jupiter.api.Test;
-import se.kth.iv1350.processSale.model.Customer;
-import se.kth.iv1350.processSale.model.Discount;
-import se.kth.iv1350.processSale.model.Sale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SaleTest {
-
     @Test
     void testEquals(){
         //First test
@@ -66,5 +62,4 @@ class SaleTest {
         //Sixth test
         assertEquals(true,sale.pay(20),"Purchase should be complete");
     }
-
 }

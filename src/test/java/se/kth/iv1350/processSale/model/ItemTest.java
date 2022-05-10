@@ -1,12 +1,10 @@
-package test;
+package se.kth.iv1350.processSale.model;
 
 import org.junit.jupiter.api.Test;
-import se.kth.iv1350.processSale.model.Item;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ItemTest {
-
     @Test
     void testEquals() {
         //First test
