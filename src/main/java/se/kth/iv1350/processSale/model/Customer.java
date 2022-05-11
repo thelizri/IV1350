@@ -2,6 +2,9 @@ package se.kth.iv1350.processSale.model;
 
 import se.kth.iv1350.processSale.integration.CustomerDatabase;
 
+/**
+ * This is the customer class. It contains information related to the customer.
+ */
 public class Customer {
     private int customerID;
     private String name;
@@ -21,17 +24,6 @@ public class Customer {
     }
 
     /**
-     * Creates an instance of a Customer.
-     * @param customerID The customer ID number.
-     */
-    public Customer(int customerID) {
-        CustomerDatabase customerDatabase = new CustomerDatabase();
-        this.customerID = customerID;
-        this.name = customerDatabase.getName(customerID);
-        this.address = customerDatabase.getAddress(customerID);
-    }
-
-    /**
      * Returns the name of the customer.
      * @return The name of the customer.
      */
@@ -45,5 +37,13 @@ public class Customer {
      */
     public String getAddress() {
         return address;
+    }
+
+    /**
+     * Gets the ID number of the customer.
+     * @return ID number of the customer.
+     */
+    public int getCustomerID() {
+        return customerID;
     }
 }

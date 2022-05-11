@@ -1,26 +1,39 @@
 package se.kth.iv1350.processSale.controller;
 
-import se.kth.iv1350.processSale.integration.AccountingSystem;
-import se.kth.iv1350.processSale.integration.CustomerDatabase;
-import se.kth.iv1350.processSale.integration.InventorySystem;
-import se.kth.iv1350.processSale.integration.Printer;
+import se.kth.iv1350.processSale.integration.*;
 import se.kth.iv1350.processSale.model.*;
 
+/**
+ * This is the controller class. It's responsible for a lot of the logic of the program.
+ * Making sure the right methods are called and the right classes are used.
+ */
 public class Controller {
     private AccountingSystem accountingSystem;
     private InventorySystem inventorySystem;
     private CustomerDatabase customerDatabase;
+    private DiscountDatabase discountDatabase;
     private Sale currentSale;
     private Customer customer;
     private Discount discount;
 
+    /**
+     * Creates an instance of the controller class.
+     * @param accountingSystem An instance of the accounting system.
+     * @param inventorySystem An instance of the inventory system.
+     * @param customerDatabase An instance of the customer database.
+     * @param discountDatabase An instance of the discount database.
+     */
     public Controller(AccountingSystem accountingSystem, InventorySystem inventorySystem,
-                      CustomerDatabase customerDatabase) {
+                      CustomerDatabase customerDatabase, DiscountDatabase discountDatabase) {
         this.customerDatabase = customerDatabase;
         this.accountingSystem = accountingSystem;
         this.inventorySystem = inventorySystem;
+        this.discountDatabase = discountDatabase;
     }
 
+    /**
+     * Creates a new sale.
+     */
     public void createNewSale(){
         currentSale = new Sale();
     }
@@ -46,8 +59,8 @@ public class Controller {
      */
     public boolean discountRequest(int customerID){
         if(customerDatabase.verifyCustomer(customerID)){
-            customer = new Customer(customerID);
-            discount = new Discount(customer);
+            customer = customerDatabase.getCustomer(customerID);
+            discount = discountDatabase.getDiscount(customer);
             currentSale.applyDiscount(discount);
             return true;
         }
@@ -62,7 +75,7 @@ public class Controller {
      * @param address The address of the customer.
      * @param customerID The customer ID.
      */
-    public void createNewCustomer(String name, String address, int customerID){
+    public void registerNewCustomer(String name, String address, int customerID){
         customer = new Customer(name, address, customerID);
         customerDatabase.registerNewCustomer(customer);
     }

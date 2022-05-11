@@ -108,17 +108,6 @@ public class Sale {
         return receipt;
     }
 
-    private void calculateTotalPrice(){
-        this.totalPrice = 0;
-        this.totalVAT = 0;
-        for(int i=0; i<shoppingCart.size();i++){
-            Item x = shoppingCart.get(i);
-            totalPrice += x.getPrice()*x.getQuantity();
-            totalVAT += x.getVAT()* x.getQuantity();
-        }
-        totalPrice -= discountAmount;
-    }
-
     /**
      * Returns the total price of the sale/purchase.
      * @return The total price.
@@ -175,5 +164,16 @@ public class Sale {
     public Item getLastAddedItem(){
         int indexOfLastItem = shoppingCart.size()-1;
         return shoppingCart.get(indexOfLastItem);
+    }
+
+    private void calculateTotalPrice(){
+        this.totalPrice = 0;
+        this.totalVAT = 0;
+        for(int i=0; i<shoppingCart.size();i++){
+            Item x = shoppingCart.get(i);
+            totalPrice += x.getPrice()*x.getQuantity();
+            totalVAT += x.getVAT()* x.getQuantity();
+        }
+        totalPrice -= discountAmount;
     }
 }

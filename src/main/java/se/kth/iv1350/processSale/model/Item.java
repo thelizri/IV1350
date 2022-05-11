@@ -75,4 +75,11 @@ public class Item {
         return quantity;
     }
 
+    /**
+     * Returns the item identifier.
+     * @return The item identifier.
+     */
+    public int getItemIdentifier() {
+        return itemIdentifier;
+    }
 }

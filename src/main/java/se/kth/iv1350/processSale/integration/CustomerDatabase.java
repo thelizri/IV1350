@@ -22,21 +22,14 @@ public class CustomerDatabase {
     }
 
     /**
-     * Returns the name of a customer.
-     * @param customerID The ID number of the customer.
-     * @return The name of the customer.
+     * Returns a customer instance given a customer ID.
+     * @param customerID The customer ID.
+     * @return The customer instance.
      */
-    public String getName(int customerID){
-        return "Johnny Depp";
-    }
-
-    /**
-     * Returns the address of the customer.
-     * @param customerID The ID number of the customer.
-     * @return The address of the customer.
-     */
-    public String getAddress(int customerID){
-        return "Hollywood";
+    public Customer getCustomer(int customerID){
+        String customerName = getName(customerID);
+        String customerAddress = getAddress(customerID);
+        return new Customer(customerName, customerAddress, customerID);
     }
 
     /**
@@ -45,5 +38,13 @@ public class CustomerDatabase {
      */
     public void registerNewCustomer(Customer customer){
 
+    }
+
+    private String getName(int customerID){
+        return "Johnny Depp";
+    }
+
+    private String getAddress(int customerID){
+        return "Hollywood";
     }
 }

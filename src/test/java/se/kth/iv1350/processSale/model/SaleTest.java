@@ -1,6 +1,8 @@
 package se.kth.iv1350.processSale.model;
 
 import org.junit.jupiter.api.Test;
+import se.kth.iv1350.processSale.integration.CustomerDatabase;
+import se.kth.iv1350.processSale.integration.DiscountDatabase;
 import se.kth.iv1350.processSale.integration.InventorySystem;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,9 +30,11 @@ class SaleTest {
     @Test
     void applyDiscount(){
         InventorySystem inventorySystem = new InventorySystem();
+        CustomerDatabase customerDatabase = new CustomerDatabase();
+        DiscountDatabase discountDatabase = new DiscountDatabase();
 
-        Customer customer = new Customer(1);
-        Discount discount = new Discount(customer);
+        Customer customer = customerDatabase.getCustomer(20);
+        Discount discount = discountDatabase.getDiscount(customer);
         Sale sale = new Sale();
         sale.addItem(inventorySystem.getItem(1,3));
         sale.addItem(inventorySystem.getItem(1,2));
